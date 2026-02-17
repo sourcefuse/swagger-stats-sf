@@ -4,8 +4,40 @@
 
 # swagger-stats | API Observability
 
+## About This Project
 
-####  [https://swaggerstats.io](https://swaggerstats.io) | [Guide](https://swaggerstats.io/guide/) 
+⚠ **Important Notice**
+
+This project is a maintained fork of the original
+[swagger-stats](https://github.com/slanatech/swagger-stats).
+
+The original project was created and maintained by
+Slanatech Software and contributors.
+
+We created this fork to:
+
+- Continue maintenance
+- Apply security updates
+- Introduce improvements and fixes
+- Ensure long-term support
+
+We deeply appreciate the work done by the original authors and community.
+
+## Differences from Upstream
+
+Compared to the original project, this fork:
+
+- Includes dependency updates
+- Fixes known issues
+- Adds internal improvements
+- Provides ongoing maintenance
+
+## License
+
+This project retains the original license from swagger-stats.
+See the LICENSE file for details.
+
+#### [https://swaggerstats.io](https://swaggerstats.io) | [Guide](https://swaggerstats.io/guide/)
 
 [![CircleCI](https://dl.circleci.com/status-badge/img/gh/slanatech/swagger-stats/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/slanatech/swagger-stats/tree/master)
 [![Coverage Status](https://coveralls.io/repos/github/slanatech/swagger-stats/badge.svg?branch=master&dummy)](https://coveralls.io/github/slanatech/swagger-stats?branch=master&dummy)
@@ -13,77 +45,64 @@
 [![npm downloads](https://img.shields.io/npm/dm/swagger-stats.svg)](https://img.shields.io/npm/dm/swagger-stats)
 [![Gitter](https://badges.gitter.im/swagger-stats/community.svg)](https://gitter.im/swagger-stats/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-
 #### Trace API calls and Monitor API performance, health and usage statistics in Node.js Microservices
 
 ### Express, Fastify, Koa, Hapi, Restify
 
 **swagger-stats** traces REST API requests and responses in Node.js Microservices, and collects statistics per API Operation.
-**swagger-stats** detects API operations based on express routes. You may also provide [Swagger (Open API) specification](https://swagger.io/specification/), 
-and swagger-stats will match API requests with API Operations defined in swagger specification. 
+**swagger-stats** detects API operations based on express routes. You may also provide [Swagger (Open API) specification](https://swagger.io/specification/),
+and swagger-stats will match API requests with API Operations defined in swagger specification.
 
 **swagger-stats** exposes statistics and metrics per API Operation, such as `GET /myapi/:parameter`, or `GET /pet/{petId}`
- 
 
-### Built-In API Telemetry 
+### Built-In API Telemetry
 
 > **swagger-stats** provides built-in Telemetry UX, so you may enable **swagger-stats** in your app, and start monitoring immediately, with no infrastructure requirements.
-> Navigate to `http://<your app host:port>/swagger-stats/`   
-
+> Navigate to `http://<your app host:port>/swagger-stats/`
 
 ![swagger-stats Built-In Telemetry](screenshots/swsux.gif?raw=true)
 
-
-       
 ### API Analytics with [Elasticsearch](https://www.elastic.co/) and [Kibana](https://www.elastic.co/products/kibana)
 
-> **swagger-stats** stores details about each request/response in [Elasticsearch](https://www.elastic.co/), so you may use [Kibana](https://www.elastic.co/products/kibana) 
+> **swagger-stats** stores details about each request/response in [Elasticsearch](https://www.elastic.co/), so you may use [Kibana](https://www.elastic.co/products/kibana)
 > to perform detailed analysis of API usage over time, build visualizations and dashboards
-
 
 ![swagger-stats Kibana Dashboard](screenshots/kibana.gif?raw=true)
 
 See `dashboards/elastic6` for swagger-stats Kibana visualizations and dashboards
- 
 
 ### Monitoring and Alerting with [Prometheus](https://prometheus.io/) and [Grafana](https://grafana.com/)
 
 > **swagger-stats** exposes metrics in [Prometheus](https://prometheus.io/) format, so you may use [Prometheus](https://prometheus.io/) and [Grafana](https://grafana.com/) to setup API monitoring and alerting
 
-
 ![swagger-stats Prometheus Dashboard](screenshots/prometheus-dashboard-2-sm.png?raw=true)
 
+See `dashboards/prometheus` for swagger-stats Grafana dashboards
 
-See `dashboards/prometheus` for swagger-stats Grafana dashboards 
+With statistics and metrics exposed by **swagger-stats** you may spot problematic API endpoints, see where most of errors happens,
+catch long-running requests, analyze details of last errors, observe trends, setup alerting.
 
-
-
-With statistics and metrics exposed by **swagger-stats** you may spot problematic API endpoints, see where most of errors happens, 
-catch long-running requests, analyze details of last errors, observe trends, setup alerting. 
-
- 
 **swagger-stats** provides:
-* Metrics in [Prometheus](https://prometheus.io/) format, so you may use [Prometheus](https://prometheus.io/) and [Grafana](https://grafana.com/) to setup API monitoring and alerting
-* Storing details about each API Request/Response in [Elasticsearch](https://www.elastic.co/), so you may use [Kibana](https://www.elastic.co/products/kibana) to perform analysis of API usage over time, build visualizations and dashboards  
-* Built-in API Telemetry UI, so you may enable swagger-stats in your app, and start monitoring right away, with no additional tools required
-* Exposing collected statistics via API, including:
-* Counts of requests and responses(total and by response class), processing time (total/avg/max), 
-content length(total/avg/max) for requests and responses, rates for requests and errors. 
-This is baseline set of stats. 
-* Statistics by Request Method: baseline stats collected for each request method
-* Timeline: baseline stats collected for each 1 minute interval during last 60 minutes. Timeline helps you to analyze trends.
-* Errors: count of responses per each error code, top "not found" resources, top "server error" resources
-* Last errors: request and response details for the last 100 errors (last 100 error responses)
-* Longest requests: request and response details for top 100 requests that took longest time to process (time to send response)
-* Tracing: Request and Response details - method, URLs, parameters, request and response headers, addresses, start/stop times and processing duration, matched API Operation info
-* API Statistics: baseline stats and parameter stats per each API Operation. API operation detected based on express routes, and based on [Swagger (Open API) specification](https://swagger.io/specification/) 
-* CPU and Memory Usage of Node process
 
+- Metrics in [Prometheus](https://prometheus.io/) format, so you may use [Prometheus](https://prometheus.io/) and [Grafana](https://grafana.com/) to setup API monitoring and alerting
+- Storing details about each API Request/Response in [Elasticsearch](https://www.elastic.co/), so you may use [Kibana](https://www.elastic.co/products/kibana) to perform analysis of API usage over time, build visualizations and dashboards
+- Built-in API Telemetry UI, so you may enable swagger-stats in your app, and start monitoring right away, with no additional tools required
+- Exposing collected statistics via API, including:
+- Counts of requests and responses(total and by response class), processing time (total/avg/max),
+  content length(total/avg/max) for requests and responses, rates for requests and errors.
+  This is baseline set of stats.
+- Statistics by Request Method: baseline stats collected for each request method
+- Timeline: baseline stats collected for each 1 minute interval during last 60 minutes. Timeline helps you to analyze trends.
+- Errors: count of responses per each error code, top "not found" resources, top "server error" resources
+- Last errors: request and response details for the last 100 errors (last 100 error responses)
+- Longest requests: request and response details for top 100 requests that took longest time to process (time to send response)
+- Tracing: Request and Response details - method, URLs, parameters, request and response headers, addresses, start/stop times and processing duration, matched API Operation info
+- API Statistics: baseline stats and parameter stats per each API Operation. API operation detected based on express routes, and based on [Swagger (Open API) specification](https://swagger.io/specification/)
+- CPU and Memory Usage of Node process
 
-## How to Use 
+## How to Use
 
-
-### Install 
+### Install
 
 ```
 npm install swagger-stats --save
@@ -100,83 +119,81 @@ npm install prom-client@12 --save
 #### Express
 
 ```javascript
-const swStats = require('swagger-stats');
-const apiSpec = require('swagger.json');
-app.use(swStats.getMiddleware({swaggerSpec:apiSpec}));
+const swStats = require("swagger-stats");
+const apiSpec = require("swagger.json");
+app.use(swStats.getMiddleware({ swaggerSpec: apiSpec }));
 ```
 
 #### Fastify
 
 ```javascript
-const swStats = require('swagger-stats');
-const apiSpec = require('swagger.json');
+const swStats = require("swagger-stats");
+const apiSpec = require("swagger.json");
 
-const fastify = require('fastify')({
-    logger: true
+const fastify = require("fastify")({
+    logger: true,
 });
 
 // Enable swagger-stats
-fastify.register(require('fastify-express')).then(()=>{
-    fastify.register(swStats.getFastifyPlugin, {swaggerSpec:apiSpec});
+fastify.register(require("fastify-express")).then(() => {
+    fastify.register(swStats.getFastifyPlugin, { swaggerSpec: apiSpec });
 });
-
 ```
-
 
 #### Koa
 
 [`express-to-koa`](https://github.com/kaelzhang/express-to-koa) can be used which is just a simple `Promise` wrapper.
 
 ```javascript
-const swStats = require('swagger-stats');
-const apiSpec = require('swagger.json');
-const e2k = require('express-to-koa');
-app.use(e2k(swStats.getMiddleware({ swaggerSpec:apiSpec })));
+const swStats = require("swagger-stats");
+const apiSpec = require("swagger.json");
+const e2k = require("express-to-koa");
+app.use(e2k(swStats.getMiddleware({ swaggerSpec: apiSpec })));
 ```
 
 #### Hapi
 
 ```javascript
-const swStats = require('swagger-stats');
-const swaggerSpec = require('./petstore.json');
+const swStats = require("swagger-stats");
+const swaggerSpec = require("./petstore.json");
 
 const init = async () => {
-
     server = Hapi.server({
         port: 3040,
-        host: 'localhost'
+        host: "localhost",
     });
 
     await server.register({
         plugin: swStats.getHapiPlugin,
         options: {
-             swaggerSpec:swaggerSpec
-        }
+            swaggerSpec: swaggerSpec,
+        },
     });
 
     await server.start();
-    console.log('Server running on %s', server.info.uri);
+    console.log("Server running on %s", server.info.uri);
 };
-````
+```
 
 #### Restify
 
 ```javascript
-const restify = require('restify');
-const swStats = require('swagger-stats');
-const apiSpec = require('swagger.json');
+const restify = require("restify");
+const swStats = require("swagger-stats");
+const apiSpec = require("swagger.json");
 
 const server = restify.createServer();
 
-server.pre(swStats.getMiddleware({
-    swaggerSpec:apiSpec,
-}));
+server.pre(
+    swStats.getMiddleware({
+        swaggerSpec: apiSpec,
+    }),
+);
 ```
 
 See `/examples` for sample apps
 
 ### Get Statistics with API
-
 
 ```
 $ curl http://<your app host:port>/swagger-stats/stats
@@ -219,9 +236,7 @@ $ curl http://<your app host:port>/swagger-stats/stats
 
 Take a look at [Documentation](https://swaggerstats.io/guide/) for more details on API and returned statistics.
 
-
-### Get Prometheus Metrics 
-
+### Get Prometheus Metrics
 
 ```
 $ curl http://<your app host:port>/swagger-stats/metrics
@@ -238,18 +253,17 @@ api_all_errors_total 32152
 # TYPE api_all_client_error_total counter
 api_all_client_error_total 22986
 
-. . . . . . . . . .  
+. . . . . . . . . .
 
 ```
 
 #### Default Metrics
 
-
 To collect [prom-client default metrics](https://github.com/siimon/prom-client#default-metrics):
 
 ```javascript
-const swaggerStats = require('swagger-stats');
-const promClient = require('prom-client');
+const swaggerStats = require("swagger-stats");
+const promClient = require("prom-client");
 
 promClient.collectDefaultMetrics();
 ```
@@ -261,12 +275,11 @@ Some Node.js specific metrics are included, such as event loop lag:
 # TYPE nodejs_eventloop_lag_seconds gauge
 nodejs_eventloop_lag_seconds 0.000193641 1597303877464
 
-. . . . . . . . . .  
+. . . . . . . . . .
 
 ```
 
-
-## Updates 
+## Updates
 
 See [Changelog](https://github.com/slanatech/swagger-stats/blob/master/CHANGELOG.md)
 
@@ -275,5 +288,5 @@ See [Changelog](https://github.com/slanatech/swagger-stats/blob/master/CHANGELOG
 If you find a bug, or have an enhancement in mind please post [issues](https://github.com/slanatech/swagger-stats/issues) on GitHub.
 
 ## License
- 
+
 MIT

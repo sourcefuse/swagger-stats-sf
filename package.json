@@ -1,6 +1,6 @@
 {
     "name": "swagger-stats-sf",
-    "version": "0.99.7",
+    "version": "0.99.8",
     "description": "API Telemetry and APM. Trace API calls and Monitor API performance, health and usage statistics in Node.js Microservices, based on express routes and Swagger (Open API) specification",
     "main": "lib/index.js",
     "scripts": {
@@ -67,7 +67,8 @@
         "metrics",
         "elasticsearch",
         "kibana",
-        "grafana"
+        "grafana",
+        "fork of swagger-stats"
     ],
     "files": [
         "dashboards/**/*",
@@ -84,7 +85,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/slanatech/swagger-stats"
+        "url": "https://github.com/sourcefuse/swagger-stats-sf"
     },
     "author": "https://github.com/sv2",
     "homepage": "http://swaggerstats.io",
