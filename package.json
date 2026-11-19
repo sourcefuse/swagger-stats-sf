@@ -95,15 +95,15 @@
     },
     "license": "MIT",
     "dependencies": {
-        "axios": "^1.4.0",
+        "axios": "^1.20.0",
         "basic-auth": "^2.0.1",
         "cookies": "^0.8.0",
         "debug": "^4.3.4",
-        "moment": "^2.29.4",
+        "moment": "^2.31.0",
         "path-to-regexp": "^6.2.1",
-        "qs": "^6.14.2",
+        "qs": "^6.16.1",
         "send": "^0.19.1",
-        "uuid": "^9.0.0"
+        "uuid": "^11.1.1"
     },
     "peerDependencies": {
         "prom-client": ">= 10 <= 14"
@@ -144,6 +144,7 @@
         "request": {
             "form-data": "^2.5.5",
             "qs": "^6.14.2"
-        }
+        },
+        "uuid@>=9 <11": "^11.1.1"
     }
 }
