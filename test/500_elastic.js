@@ -4,7 +4,20 @@ var chai = require('chai');
 chai.should();
 var expect = chai.expect;
 var supertest = require('supertest');
-var request = require('request');
+var axios = require('axios');
+
+// Small callback wrapper over axios, with the (error, response, body) shape the tests expect.
+var toCallback = function (promise, cb) {
+    promise.then(function (res) { cb(null, { statusCode: res.status }, res.data); }, function (err) { cb(err); });
+};
+var request = {
+    get: function (opts, cb) {
+        toCallback(axios.get(opts.url, { validateStatus: function () { return true; } }), cb);
+    },
+    post: function (opts, cb) {
+        toCallback(axios.post(opts.url, opts.body, { validateStatus: function () { return true; } }), cb);
+    }
+};
 var cuid = require('cuid');
 
 var Q = require('q');
